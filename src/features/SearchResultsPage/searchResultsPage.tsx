@@ -132,6 +132,8 @@ const SearchResultsPage = () => {
             <Typography variant="h2">
               Showing search results for&nbsp;
               <Box component="span" color={theme.palette.text.primary}>
+              {`${t("search_results")} `}
+              <Box component="span" color={theme.palette.secondary.main}>
                 {search}
               </Box>
             </Typography>

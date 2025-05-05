@@ -81,6 +81,35 @@ function ThemeProvider(props: PropsWithChildren<{ customTheme?: Theme }>) {
                   primary: "#fff",
                   secondary: "#908e8e",
                 },
+      createTheme({
+        cssVariables: {
+          colorSchemeSelector: "class",
+        },
+        shadows: [...defaultTheme.shadows].map(() => "none") as Shadows,
+        palette: {
+          mode: "dark",
+          colors,
+        },
+        typography: {
+          fontFamily: fontFamily,
+          h1: { fontSize: 28, lineHeight: "normal" },
+          h2: { fontSize: 24, lineHeight: "normal" },
+          h3: { fontSize: 22, lineHeight: "normal" },
+          h4: { fontSize: 20, lineHeight: "normal" },
+          h5: { fontSize: 16, lineHeight: "normal" },
+          h6: { fontSize: 12, lineHeight: "normal" },
+          bodySmall: { ...defaultTheme.typography.body1, fontSize: 12, lineHeight: "normal", fontFamily },
+          bodyMedium: { ...defaultTheme.typography.body1, fontSize: 14, lineHeight: "normal", fontFamily },
+          bodyLarge: { ...defaultTheme.typography.body1, fontSize: 16, lineHeight: "normal", fontFamily },
+        },
+        components: {
+          MuiTypography: {
+            defaultProps: {
+              variant: "bodyMedium",
+              variantMapping: {
+                bodySmall: "p",
+                bodyMedium: "p",
+                bodyLarge: "p",
               },
             },
           },

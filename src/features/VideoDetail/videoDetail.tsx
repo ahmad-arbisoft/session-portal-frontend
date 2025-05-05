@@ -44,6 +44,7 @@ const VideoDetail = () => {
 
   useEffect(() => {
     if (!videoId || error) {
+    if (isNaN(parsedId) || error) {
       navigateTo("videos");
     }
   }, [error]);
