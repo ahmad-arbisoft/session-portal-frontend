@@ -54,6 +54,7 @@ describe("useNavigation", () => {
     result.current.navigateTo("videos");
 
     expect(mockPush).toHaveBeenCalledWith("/videos", { scroll: true });
+    expect(mockPush).toHaveBeenCalledWith("/en/videos", { scroll: true });
   });
 
   it("should call router.push with correct URL for videoDetail with ID", () => {
@@ -61,11 +62,13 @@ describe("useNavigation", () => {
     result.current.navigateTo("videoDetail", { id: "test-video-slug" });
 
     expect(mockPush).toHaveBeenCalledWith("/videos/test-video-slug", { scroll: true });
+    expect(mockPush).toHaveBeenCalledWith("/en/videos/456", { scroll: true });
   });
 
   it("should call router.push with query parameters", () => {
     const { result } = renderHook(() => useNavigation());
     result.current.navigateTo("searchResult", { q: "example" });
     expect(mockPush).toHaveBeenCalledWith("/videos/results?q=example", { scroll: true });
+    expect(mockPush).toHaveBeenCalledWith("/en/videos/results?q=example", { scroll: true });
   });
 });
