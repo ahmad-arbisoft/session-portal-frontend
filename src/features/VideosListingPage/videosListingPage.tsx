@@ -54,6 +54,9 @@ const VideosListingPage = () => {
     page_size: 12,
     ordering: ["-event_time"],
   };
+    page_size: 1,
+    ordering: ["-event_time"],
+  });
 
   const queryParams = useMemo(
     () => ({
